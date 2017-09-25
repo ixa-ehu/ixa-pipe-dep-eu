@@ -18,17 +18,16 @@ tresnaren irteeran lortzen da.
 
 ## Instalazioa
 
-Tresna hau lortzeko bi aukera daude: [iturburu-kodea lortu eta konpilatu](iturburu-kodea-erabiliz) edo [aurrekonpilatutako paketea erabili](aurrekonpilatutako-paketea-erabiliz). Bi kasuetan, [baliabide linguistikoak instalatu](baliabide-linguistikoak-instalatu) behar dira.
+Tresna hau lortzeko bi aukera daude: [iturburu-kodea lortu eta konpilatu](#iturburu-kodea-erabiliz) edo [aurrekonpilatutako paketea erabili](#aurrekonpilatutako-paketea-erabiliz). Bi kasuetan, [baliabide linguistikoak instalatu](#baliabide-linguistikoak-instalatu) behar dira.
 
 
 ### Iturburu-kodea erabiliz
 
 **ixa-pipe-dep-eu** instalatzeko ondorengo urratsak jarraitu behar dira:
 
-* JDK 1.7 instalatu
+* Java instalatu (JDK 1.7+)
 
-* MAVEN 3 instalatu, adibidez, honako paketea deskargatuta:
-  [apache-maven-3.04-bin.tar.gz](http://ftp.udc.es/apache/maven/maven-3/3.0.4/binaries/apache-maven-3.0.4-bin.tar.gz)
+* [Maven](https://maven.apache.org/download.cgi) instalatu
 
 * Iturburu-kodea lortu
 
@@ -45,7 +44,7 @@ hainbat fitxategiren artean, exekutagarri hau aurkituko duzu:
     ixa-pipe-dep-eu-v1.0.0-exec.jar
 
 * Instalatu tresna eta baliabide linguistikoak [atal
-honetan](baliabide-linguistikoak-instalatu) azaldutako urratsak
+honetan](#baliabide-linguistikoak-instalatu) azaldutako urratsak
 jarraituz.
 
 
@@ -57,7 +56,7 @@ aurrekonpilatua ondorengo esteka honetatik deskarga daiteke:
 
 Paketea deskonprimitu. Exekutagarria erabiltzeko prest egongo da
 inongo instalaziorik egin gabe, baina [atal
-honetan](baliabide-linguistikoak-instalatu) azaldutako urratsak
+honetan](#baliabide-linguistikoak-instalatu) azaldutako urratsak
 jarraitu beharko dituzu beharrezko tresna eta baliabide linguistikoak
 instalatzeko.
 
@@ -89,14 +88,14 @@ sintaxi osoa honakoa da:
     > java -jar ixa-pipe-dep-eu-1.0.0-exec.jar [-h] -b BALIABIDEAK_DIR [-c CONLL_FITX]
 
     argumentuak:
-     -h     mezu hau erakutsi eta irten
+     -h                  mezu hau erakutsi eta irten
      -b BALIABIDEAK_DIR [Beharrezkoa] Zehaztu deskargatutako baliabideen direktorioaren kokapena.
-     -c CONLL_FITX [Aukerazkoa] Irteera CONLL formatuan ere gorde nahi baduzu, zehaztu irteerako fitxategiaren kokapena.
+     -c CONLL_FITX      [Aukerazkoa] Irteera CONLL formatuan ere gorde nahi baduzu, zehaztu irteerako fitxategiaren kokapena.
 
 `run.sh` script exekutagarria eskuragarri jarri da tresna exekutatu
 ahal izateko. Erabil dezakezu, baina exekutatu aurretik, eguneratu
 `rootDir` eta `baliabideak` aldagaiak [atal
-honetan](baliabide-linguistikoak-instalatu) adierazitako moduan.
+honetan](#baliabide-linguistikoak-instalatu) adierazitako moduan.
 
 Tresna honek sarrera estandarretik irakurtzen du, eta sarrera horrek
 UTF-8an kodetutako NAF formatuan dagoen dokumentua izan behar du,

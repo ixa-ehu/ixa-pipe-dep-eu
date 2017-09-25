@@ -12,27 +12,26 @@ implemented in Java programming language.
 
 The tool takes a document in [NAF
 format](http://wordpress.let.vupr.nl/naf/). This input document should
-contain lemmas, PoS tags and morphological. The input NAF document
-containing the necessary linguistic information could be obtained from
-the output of
+contain lemmas, PoS tags and morphological information. The input NAF
+document containing the necessary linguistic information could be
+obtained from the output of
 [`ixa-pipe-pos-eu`](http://ixa2.si.ehu.es/ixakat/ixa-pipe-pos-eu.php?lang=en).
 
 
 ## Installation
 
 There are two options in order to get this tool: [get the source code
-and compile it](from-source) or [use the pre-compiled
-package](using-pre-compiled-package). Anyway, some [linguistic
-resources must be installed](installing-the-linguistic-resources).
+and compile it](#from-source) or [use the pre-compiled
+package](#using-pre-compiled-package). Anyway, some [linguistic
+resources must be installed](#installing-the-linguistic-resources).
 
 ### From source
 
 Installing the **ixa-pipe-dep-eu** requires the following steps:
 
-* Install JDK 1.7
+* Install Java (JDK 1.7+)
 
-* Install MAVEN 3, after you download this package:
-  [apache-maven-3.04-bin.tar.gz](http://ftp.udc.es/apache/maven/maven-3/3.0.4/binaries/apache-maven-3.0.4-bin.tar.gz)
+* Install [Maven](https://maven.apache.org/download.cgi)
 
 * Get module source code
 
@@ -50,7 +49,7 @@ the module executable:
     ixa-pipe-dep-eu-v1.0.0-exec.jar
 
 * Install the linguistic tools and resources as specified in [this
-section](installing-the-linguistic-resources).
+section](#installing-the-linguistic-resources).
 
 
 ### Using the pre-compiled package
@@ -61,7 +60,7 @@ package that contains the executable file from the following link:
 
 Decompress the package. The executable will be ready to use, without
 any installation, but you have to follow the steps in [this
-section](installing-the-linguistic-resources) in order to install the
+section](#installing-the-linguistic-resources) in order to install the
 linguistic tools and resources needed.
 
 To run the tool, Java should be installed in your computer.
@@ -85,21 +84,21 @@ order to install the necessary resources and dependencies.
 The `ixa-pipe-dep-eu-1.0.0-exec.jar` executable is used to run the
 **ixa-pipe-dep-eu** tool. The only required argument (`-b`) is the
 path of the linguistic resources directory obtained in [this
-section](installing-the-linguistic-resources). The full command syntax
+section](#installing-the-linguistic-resources). The full command syntax
 of `ixa-pipe-dep-eu-1.0.0-exec.jar` is
 
     > java -jar ixa-pipe-dep-eu-1.0.0-exec.jar [-h] -b RESOURCES_DIR [-c CONLL_FILE]
 
     arguments:
-     -h     show this help message and exit
+     -h                show this help message and exit
      -b RESOURCES_DIR [Required] Specify the path of the downloaded resource directory
-     -c CONLL_FILE [Optional] If you want to save the output also in CONLL format, specify the path of the output file
+     -c CONLL_FILE    [Optional] If you want to save the output also in CONLL format, specify the path of the output file
 
 
 A executable script `run.sh` is provided to run the
 **ixa-pipe-dep-eu** tool. You can use it, but before running it,
 update the `rootDir` and `baliabideak` variables on this script as
-specified in [this section](installing-the-linguistic-resources).
+specified in [this section](#installing-the-linguistic-resources).
 
 This tool reads from standard input. It should be UTF-8 encoded NAF
 format, containing lemmas, PoS tags and morphological annotations
