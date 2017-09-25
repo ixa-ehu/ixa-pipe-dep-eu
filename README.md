@@ -6,9 +6,12 @@
 [**ixa-pipe-dep-eu**](http://ixa2.si.ehu.es/ixakat/ixa-pipe-dep-eu.php?lang=en)
 is a dependency parser for Basque written documents. It is a tool of
 the [ixaKat](http://ixa2.si.ehu.es/ixakat/index.php?lang=en) modular
-chain. It is based on the graph-based version of
-[Mate](https://code.google.com/archive/p/mate-tools/) parser and it is
-implemented in Java programming language. 
+chain. It is based on the combination of the analyses obtained by
+different parsers. More precisely,
+[Mate](https://code.google.com/archive/p/mate-tools/) and
+[MaltParser](http://maltparser.org/) parsers are used to obtain the
+analyses, and MaltBlender tool is used to choose the best combination
+of those analyses.
 
 The tool takes a document in [NAF
 format](http://wordpress.let.vupr.nl/naf/). This input document should
@@ -46,7 +49,7 @@ This step will create a directory called `target`  which contains
 various directories and files. Most importantly, there you will find
 the module executable:
 
-    ixa-pipe-dep-eu-v1.0.0-exec.jar
+    ixa-pipe-dep-eu-2.0.0-exec.jar
 
 * Install the linguistic tools and resources as specified in [this
 section](#installing-the-linguistic-resources).
@@ -56,7 +59,7 @@ section](#installing-the-linguistic-resources).
 
 Instead of compiling from source, you can download the pre-compiled
 package that contains the executable file from the following link:
-[ixa-pipe-dep-eu-v1.0.0.tgz](http://ixa2.si.ehu.es/ixakat/downloads/ixa-pipe-dep-eu-v1.0.0.tgz)
+[ixa-pipe-dep-eu-v2.0.0.tgz](http://ixa2.si.ehu.es/ixakat/downloads/ixa-pipe-dep-eu-v2.0.0.tgz)
 
 Decompress the package. The executable will be ready to use, without
 any installation, but you have to follow the steps in [this
@@ -72,7 +75,7 @@ Before starting using the tool, you have to follow the next steps in
 order to install the necessary resources and dependencies.
 
  - Download the package of the resources from the following link:
-   [dep-eu-resources-v1.0.0.tgz](http://ixa2.si.ehu.es/ixakat/downloads/dep-eu-resources-v1.0.0.tgz)
+   [dep-eu-resources-v2.0.0.tgz](http://ixa2.si.ehu.es/ixakat/downloads/dep-eu-resources-v2.0.0.tgz)
 
  - Decompress the package and update the `run.sh` executable file
    changing the `baliabideak` variable to specify the path of the
@@ -81,13 +84,13 @@ order to install the necessary resources and dependencies.
 
 ## How to use
 
-The `ixa-pipe-dep-eu-1.0.0-exec.jar` executable is used to run the
+The `ixa-pipe-dep-eu-2.0.0-exec.jar` executable is used to run the
 **ixa-pipe-dep-eu** tool. The only required argument (`-b`) is the
 path of the linguistic resources directory obtained in [this
 section](#installing-the-linguistic-resources). The full command syntax
-of `ixa-pipe-dep-eu-1.0.0-exec.jar` is
+of `ixa-pipe-dep-eu-2.0.0-exec.jar` is
 
-    > java -jar ixa-pipe-dep-eu-1.0.0-exec.jar [-h] -b RESOURCES_DIR [-c CONLL_FILE]
+    > java -jar ixa-pipe-dep-eu-2.0.0-exec.jar [-h] -b RESOURCES_DIR [-c CONLL_FILE]
 
     arguments:
      -h                show this help message and exit
@@ -133,11 +136,12 @@ will be marked by `deps` elements as it is shown in the example below:
 If you use **ixa-pipe-dep-eu** tool, please cite the following paper in
 your academic work:
 
-Arantxa Otegi, Nerea Ezeiza, Iakes Goenaga, Gorka Labaka. A Modular
-Chain of NLP Tools for Basque. In Proceedings of the 19th
-International Conference on Text, Speech and Dialogue - TSD 2016,
-Brno, Czech Republic, volume 9924 of Lecture Notes in Artificial
-Intelligence, pp. 93-100. 2016. ([*bibtex*](http://ixa2.si.ehu.es/ixakat/bib/otegi2016.bib))
+Iakes Goenaga, Koldo Gojenola, Nerea Ezeiza. Combining Clustering
+Approaches for Semi-Supervised Parsing: the BASQUE TEAM system in
+the SPRML 2014 Shared Task. Workshop on Statistical Parsing of
+Morphologically Rich Languages SPRML 2014 Shared Task, Dublin,
+COLING
+Workshop. 2014. ([*bibtex*](http://ixa2.si.ehu.es/ixakat/bib/goenaga2014.bib))
 
 
 ## License
@@ -150,6 +154,16 @@ source code and the resources. This tool has its own license:
 
  - [mate-tools anna](http://code.google.com/p/mate-tools/): GNU General
    Public License, version 2
+
+ - [MaltParser](http://code.google.com/p/mate-tools/): Copyright (C)
+   2007-2017, Johan Hall, Jens Nilsson and Joakin
+   Nivre. Redistribution and use in source and binary forms, with or
+   without modification, are permitted.
+
+ - [MaltOptimizer](http://nil.fdi.ucm.es/maltoptimizer/index.html):
+   Copyright (C) 2011, Miguel Ballesteros and Joakin
+   Nivre. Redistribution and use in source and binary forms, with or
+   without modification, are permitted.
 
 
 ## Contact

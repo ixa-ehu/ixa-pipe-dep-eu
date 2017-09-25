@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 IXA Taldea, University of the Basque Country UPV/EHU
+ * Copyright (C) 2017 IXA Taldea, University of the Basque Country UPV/EHU
 
    This file is part of ixa-pipe-dep-eu.
 
@@ -36,27 +36,25 @@ import net.sourceforge.argparse4j.inf.ArgumentParserException;
 import net.sourceforge.argparse4j.inf.Namespace;
 
 
+
 public class CLI {
-
-
+    
     private final String version = CLI.class.getPackage().getImplementationVersion();
     private final String commit = CLI.class.getPackage().getSpecificationVersion();
 
 
-    public static void main(String[] args) throws Exception {
-        CLI cmdLine = new CLI();
+    public static void main(String[] args)  throws Exception {
+	CLI cmdLine = new CLI();
         cmdLine.parseCLI(args);
     }
 
 
     public final void parseCLI(final String[] args) throws Exception {
 	Namespace parsedArguments = null;
-
 	ArgumentParser parser = ArgumentParsers.newArgumentParser(
             "ixa-pipe-dep-eu-" + version + ".jar").description(
             "ixa-pipe-dep-eu-" + version + " euskaraz idatzitako testuetarako"
-	    + " dependentzia etiketatzailea da, Mate  etiketatzailean"
-	    + " oinarritua. ixaKat tresna bat da (http://ixa2.si.ehu.es/ixakat/).\n");
+	    + " dependentzia etiketatzailea da. ixaKat tresna bat da (http://ixa2.si.ehu.es/ixakat/).\n");
 
 	parser
 	    .addArgument("-b", "--baliabideak")
@@ -82,15 +80,11 @@ public class CLI {
 	String baliabideDir = parsedArguments.getString("baliabideak");
 	String conllFitx = parsedArguments.getString("conll");
 
-	BufferedReader stdInReader = null;
-	BufferedWriter w = null;
+	BufferedReader stdInReader = new BufferedReader(new InputStreamReader(System.in,"UTF-8"));
+	BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out, "UTF-8"));
 
-	stdInReader = new BufferedReader(new InputStreamReader(System.in,"UTF-8"));
-	w = new BufferedWriter(new OutputStreamWriter(System.out, "UTF-8"));
 	KAFDocument kaf = KAFDocument.createFromStream(stdInReader);
-
 	String lang = kaf.getLang();
-
 	KAFDocument.LinguisticProcessor lp = kaf.addLinguisticProcessor("deps", "ixa-pipe-dep-eu-" 
 									+ lang, version + "-" + commit);
         lp.setBeginTimestamp();
@@ -106,7 +100,7 @@ public class CLI {
 	} catch(Exception e) {
 	    System.err.println("Dependentzi analisiak huts egin du: ");
 	    e.printStackTrace();
-	} finally{
+	} finally {
 	    lp.setEndTimestamp();
 	    w.write(kaf.toString());
 	    w.close();

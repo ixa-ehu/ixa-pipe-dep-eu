@@ -3,9 +3,13 @@
 [**ixa-pipe-dep-eu**](http://ixa2.si.ehu.es/ixakat/ixa-pipe-dep-eu.php)
 euskaraz idatzitako testuetarako dependentzia etiketatzailea
 da. [ixaKat](http://ixa2.si.ehu.es/ixakat/index.php) kate modularreko
-tresna bat da. [Mate](https://code.google.com/archive/p/mate-tools/)
-etiketatzailearen grafoetan oinarritutako bertsioan oinarritzen da eta
-Java programazio lengoaian inplementatua dago.
+tresna bat da. Analizatzaile desberdinek sortzen dituzten analisien
+konbinazioan oinarritzen da. Hain zuzen ere, [Mate]
+(https://code.google.com/archive/p/mate-tools/) eta
+[MaltParser](http://maltparser.org/) analizatzaileak erabiltzen ditu
+analisiak sortzeko, eta MaltBlender tresna hauen analisien
+konbinaziorik onenak aukeratzeko. Java programazio lengoaian
+inplementatua dago.
 
 Tresna honek [NAF formatu](http://wordpress.let.vupr.nl/naf/)n dagoen
 dokumentu bat hartzen du sarrera moduan. Sarrerako dokumentu horrek
@@ -18,7 +22,11 @@ tresnaren irteeran lortzen da.
 
 ## Instalazioa
 
-Tresna hau lortzeko bi aukera daude: [iturburu-kodea lortu eta konpilatu](#iturburu-kodea-erabiliz) edo [aurrekonpilatutako paketea erabili](#aurrekonpilatutako-paketea-erabiliz). Bi kasuetan, [baliabide linguistikoak instalatu](#baliabide-linguistikoak-instalatu) behar dira.
+Tresna hau lortzeko bi aukera daude: [iturburu-kodea lortu eta
+konpilatu](#iturburu-kodea-erabiliz) edo [aurrekonpilatutako paketea
+erabili](#aurrekonpilatutako-paketea-erabiliz). Bi kasuetan,
+[baliabide linguistikoak
+instalatu](#baliabide-linguistikoak-instalatu) behar dira.
 
 
 ### Iturburu-kodea erabiliz
@@ -41,7 +49,7 @@ Tresna hau lortzeko bi aukera daude: [iturburu-kodea lortu eta konpilatu](#iturb
 Honela, `target` izeneko direktorio bat sortuko da, eta bertan, beste
 hainbat fitxategiren artean, exekutagarri hau aurkituko duzu:
 
-    ixa-pipe-dep-eu-v1.0.0-exec.jar
+    ixa-pipe-dep-eu-2.0.0-exec.jar
 
 * Instalatu tresna eta baliabide linguistikoak [atal
 honetan](#baliabide-linguistikoak-instalatu) azaldutako urratsak
@@ -52,9 +60,9 @@ jarraituz.
 
 Ituruburu-kodea konpilatu beharrean, exekutagarria duen pakete
 aurrekonpilatua ondorengo esteka honetatik deskarga daiteke:
-[ixa-pipe-dep-eu-v1.0.0.tgz](http://ixa2.si.ehu.es/ixakat/downloads/ixa-pipe-dep-eu-v1.0.0.tgz)
+[ixa-pipe-dep-eu-v2.0.0.tgz](http://ixa2.si.ehu.es/ixakat/downloads/ixa-pipe-dep-eu-v2.0.0.tgz)
 
-Paketea deskonprimitu. Exekutagarria erabiltzeko prest egongo da
+Paketea deskonprimitu eta exekutagarria erabiltzeko prest egongo da
 inongo instalaziorik egin gabe, baina [atal
 honetan](#baliabide-linguistikoak-instalatu) azaldutako urratsak
 jarraitu beharko dituzu beharrezko tresna eta baliabide linguistikoak
@@ -70,7 +78,7 @@ dituzu beharrezko tresna eta baliabide linguistikoak erabilgarri
 jartzeko:
 
  - Deskargatu baliabideen paketea hemendik:
-   [dep-eu-resources-v1.0.0.tgz](http://ixa2.si.ehu.es/ixakat/downloads/dep-eu-resources-v1.0.0.tgz)
+   [dep-eu-resources-v2.0.0.tgz](http://ixa2.si.ehu.es/ixakat/downloads/dep-eu-resources-v2.0.0.tgz)
 
  - Deskonprimitu pakete hori eta eguneratu `run.sh` fitxategi
    exekutagarria `baliabideak` aldagaiean adieraziz lortu berri duzun
@@ -79,22 +87,22 @@ jartzeko:
 
 ## Nola erabili
 
-`ixa-pipe-dep-eu-1.0.0-exec.jar` exekutagarria erabili behar da
+`ixa-pipe-dep-eu-2.0.0-exec.jar` exekutagarria erabili behar da
 **ixa-pipe-dep-eu** tresna exekutatzeko. Honen derrigorrezko argumentu
 bakarra (`-b`) deskargatu atalean eskuragarri dagoen baliabideen
-direktorioaren kokapena da. `ixa-pipe-dep-eu-1.0.0-exec.jar` komandoaren
+direktorioaren kokapena da. `ixa-pipe-dep-eu-2.0.0-exec.jar` komandoaren
 sintaxi osoa honakoa da:
 
-    > java -jar ixa-pipe-dep-eu-1.0.0-exec.jar [-h] -b BALIABIDEAK_DIR [-c CONLL_FITX]
+    > java -jar ixa-pipe-dep-eu-2.0.0-exec.jar [-h] -b BALIABIDEAK_DIR [-c CONLL_FITX]
 
     argumentuak:
      -h                  mezu hau erakutsi eta irten
      -b BALIABIDEAK_DIR [Beharrezkoa] Zehaztu deskargatutako baliabideen direktorioaren kokapena.
      -c CONLL_FITX      [Aukerazkoa] Irteera CONLL formatuan ere gorde nahi baduzu, zehaztu irteerako fitxategiaren kokapena.
 
-`run.sh` script exekutagarria eskuragarri jarri da tresna exekutatu
-ahal izateko. Erabil dezakezu, baina exekutatu aurretik, eguneratu
-`rootDir` eta `baliabideak` aldagaiak [atal
+`run.sh` script exekutagarria eskuragarri jarri da **ixa-pipe-dep-eu**
+tresna exekutatu ahal izateko. Erabil dezakezu, baina exekutatu
+aurretik, eguneratu `rootDir` eta `baliabideak` aldagaiak [atal
 honetan](#baliabide-linguistikoak-instalatu) adierazitako moduan.
 
 Tresna honek sarrera estandarretik irakurtzen du, eta sarrera horrek
@@ -133,11 +141,12 @@ honetan ikus daitekeen moduan (adibideko sarrerako esaldia honakoa da:
 **ixa-pipe-dep-eu** tresna erabiltzen baduzu, ondorengo lan honen
 aipamena egin zure lan akademikoan mesedez:
 
-Arantxa Otegi, Nerea Ezeiza, Iakes Goenaga, Gorka Labaka. A Modular
-Chain of NLP Tools for Basque. In Proceedings of the 19th
-International Conference on Text, Speech and Dialogue - TSD 2016,
-Brno, Czech Republic, volume 9924 of Lecture Notes in Artificial
-Intelligence, pp. 93-100. 2016. ([*bibtex*](http://ixa2.si.ehu.es/ixakat/bib/otegi2016.bib))
+ Iakes Goenaga, Koldo Gojenola, Nerea Ezeiza. Combining Clustering
+  Approaches for Semi-Supervised Parsing: the BASQUE TEAM system in
+  the SPRML 2014 Shared Task. Workshop on Statistical Parsing of
+  Morphologically Rich Languages SPRML 2014 Shared Task, Dublin,
+  COLING
+  Workshop. 2014. ([*bibtex*](http://ixa2.si.ehu.es/ixakat/bib/goenaga2014.bib))
 
 
 ## Lizentzia
@@ -146,10 +155,22 @@ Intelligence, pp. 93-100. 2016. ([*bibtex*](http://ixa2.si.ehu.es/ixakat/bib/ote
 v3](http://www.gnu.org/licenses/gpl-3.0.en.html) lizentzia librera
 atxikiturik dago.
 
-Software honek kanpoko tresna bat erabiltzen du, eta kode eta
-baliabideekin batera banatzen dugu. Tresna honek bere lizentzia du:  
- - [mate-tools anna](http://code.google.com/p/mate-tools/): GNU General
-   Public License, version 2
+Software honek kanpoko hainbat tresna erabiltzen ditu, eta kode eta
+baliabideekin batera banatzen ditugu. Tresna hauek beren lizentzia eta
+copyright jabeak dituzte:
+
+ - [mate-tools anna](http://code.google.com/p/mate-tools/): GNU
+General Public License, version 2
+
+ - [MaltParser](http://code.google.com/p/mate-tools/): Copyright (C)
+   2007-2017, Johan Hall, Jens Nilsson and Joakin
+   Nivre. Redistribution and use in source and binary forms, with or
+   without modification, are permitted.
+
+ - [MaltOptimizer](http://nil.fdi.ucm.es/maltoptimizer/index.html):
+   Copyright (C) 2011, Miguel Ballesteros and Joakin
+   Nivre. Redistribution and use in source and binary forms, with or
+   without modification, are permitted.
 
 
 ## Kontaktua
